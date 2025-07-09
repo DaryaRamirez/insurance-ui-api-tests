@@ -1,72 +1,59 @@
-🛡️ Insurance UI + API Automation Framework
-✅ Overview
-This is a test automation framework for an insurance application. It covers both UI testing (Selenium + Page Object Model) and API testing (REST-assured with CRUD operations).
+# 🛡️ Insurance UI + API Automation Framework
 
-Framework supports:
+This project is a hybrid test automation framework combining **Selenium UI tests** and **REST API tests** using **RestAssured**, with reporting via **Allure** and CI integration via **GitHub Actions**.
 
-✅ UI tests for login functionality
+---
 
-✅ API tests for creating, updating, and deleting policies
+## 🚀 Tech Stack
 
-✅ Cucumber BDD integration
+- ✅ Java 17  
+- ✅ Selenium WebDriver  
+- ✅ RestAssured  
+- ✅ TestNG + Cucumber  
+- ✅ Allure Reports  
+- ✅ GitHub Actions (CI)
 
-✅ Allure reporting
+---
 
-✅ GitHub Actions CI pipeline
+## 🧪 Test Coverage
 
-🔧 Tech Stack
-Layer	Tools
-UI Testing	Selenium WebDriver, Page Object
-API Testing	REST-assured
-Test Runner	TestNG
-BDD Framework	Cucumber
-Reporting	Allure Reports
-CI/CD	GitHub Actions
-Language	Java 17
-Build Tool	Maven
+### UI Tests:
+- Login page authentication
+- Dashboard validation
 
-📂 Project Structure
+### API Tests (using [JSONPlaceholder](https://jsonplaceholder.typicode.com)):
+- ✅ Create Policy (POST)
+- ✅ Update Policy (PUT)
+- ✅ Delete Policy (DELETE)
+
+---
+
+## 📸 Reporting
+
+To view Allure report locally:
+
+```bash
+allure serve allure-results
+⚙️ CI/CD
+
+
+Every push runs tests automatically on GitHub Actions with full Allure reporting.
+
+📁 Project Structure
 bash
 Copy
 Edit
-src
-├── main
-│   └── java
-│       └── pages                  # Page Object classes
-├── test
-│   └── java
-│       └── steps                  # Step definitions for UI & API
-│   └── resources
-│       └── features               # Cucumber feature files
-🚀 How to Run
-bash
-Copy
-Edit
-# Run all tests
-mvn clean test
-
-# Generate Allure Report
-allure serve target/allure-results
-🧪 Sample Feature
-gherkin
-Copy
-Edit
-Feature: Insurance Login and Policy API
-
-  Scenario: User logs in successfully
-    Given user is on login page
-    When user enters valid credentials and logs in
-    Then dashboard should be displayed
-
-  Scenario: Create new policy
-    When user creates a policy
-    Then policy is created with status code 201
-✅ GitHub Actions CI
-CI is configured to:
-
-Run tests on each push
-
-Generate Allure Report artifacts
-
-Validate Maven build
-
+.
+├── src
+│   ├── test
+│   │   ├── java
+│   │   │   ├── pages
+│   │   │   ├── steps
+│   │   │   └── TestRunner.java
+│   │   └── resources
+│   │       └── features
+├── pom.xml
+├── .github/workflows/maven.yml
+└── README.md
+Author
+Darya Ramirez
