@@ -1,59 +1,130 @@
 # 🛡️ Insurance UI + API Automation Framework
 
-This project is a hybrid test automation framework combining **Selenium UI tests** and **REST API tests** using **RestAssured**, with reporting via **Allure** and CI integration via **GitHub Actions**.
+This project is a hybrid automation framework combining Selenium UI tests and REST API tests using RestAssured, built with Java, TestNG, Cucumber, Allure Reports, and GitHub Actions CI.
 
----
+It demonstrates real world insurance application testing with end-to-end UI flows and API CRUD validation.
 
-## 🚀 Tech Stack
+### ⚙️ Tech Stack
 
-- ✅ Java 17  
-- ✅ Selenium WebDriver  
-- ✅ RestAssured  
-- ✅ TestNG + Cucumber  
-- ✅ Allure Reports  
-- ✅ GitHub Actions (CI)
+🟦 Java 17
 
----
+🧭 Selenium WebDriver — UI automation
 
-## 🧪 Test Coverage
+🔧 RestAssured — API automation
 
-### UI Tests:
-- Login page authentication
-- Dashboard validation
+🧪 TestNG — test runner
 
-### API Tests (using [JSONPlaceholder](https://jsonplaceholder.typicode.com)):
-- ✅ Create Policy (POST)
-- ✅ Update Policy (PUT)
-- ✅ Delete Policy (DELETE)
+🧩 Cucumber (BDD) — Gherkin + step definitions
 
----
+📊 Allure Reports — reporting
 
-## 📸 Reporting
+🔄 GitHub Actions — CI pipeline
 
-To view Allure report locally:
+### 🚀 How to Run Tests
 
-```bash
+▶️ 1. Run all tests
+
+mvn clean test
+
+🎯 2. Run only UI or API tests (using tags)
+
+UI tests:
+
+mvn test -Dcucumber.filter.tags="@ui"
+
+
+API tests:
+
+mvn test -Dcucumber.filter.tags="@api"
+
+### 📸 3. Generate Allure Report
+
 allure serve allure-results
-⚙️ CI/CD
 
 
-Every push runs tests automatically on GitHub Actions with full Allure reporting.
+⚠️ Make sure Allure CLI is installed
 
-📁 Project Structure
-bash
-Copy
-Edit
-.
-├── src
-│   ├── test
-│   │   ├── java
-│   │   │   ├── pages
-│   │   │   ├── steps
+macOS: brew install allure
+
+Windows/Linux: https://docs.qameta.io/allure/#_installing_a_commandline
+
+### 🧪 Test Coverage
+
+🖥️ UI Tests
+
+Login page authentication
+
+Dashboard validation
+
+Navigation & UI element checks
+
+🌐 API Tests (JSONPlaceholder mock service)
+
+✅ POST — Create Policy
+
+🔄 PUT — Update Policy
+
+❌ DELETE — Delete Policy
+
+📸 Reporting (Allure)
+
+Allure provides:
+
+test steps
+
+screenshots (UI)
+
+request/response logs (API)
+
+attachments
+
+failure analysis
+
+Generate locally:
+
+allure serve allure-results
+
+🔄 CI/CD: GitHub Actions
+
+Each push triggers:
+
+UI + API test execution
+
+Allure results generation
+
+CI workflow validation
+
+Workflow file:
+
+.github/workflows/maven.yml
+
+### 📁 Project Structure
+```
+insurance-ui-api-tests/
+│
+├── src/
+│   ├── test/
+│   │   ├── java/
+│   │   │   ├── pages/
+│   │   │   ├── steps/
 │   │   │   └── TestRunner.java
-│   │   └── resources
-│   │       └── features
+│   │   │
+│   │   └── resources/
+│   │       └── features/
+│
 ├── pom.xml
-├── .github/workflows/maven.yml
-└── README.md
-Author
+│
+└── .github/
+    └── workflows/
+        └── maven.yml
+```
+
+### 👩‍💻 Author
+
 Darya Ramirez
+
+QA Automation Engineer
+
+🔗 LinkedIn: https://www.linkedin.com/in/daryaramirez7
+
+💻 GitHub: https://github.com/DaryaRamirez
